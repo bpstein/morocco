@@ -1,10 +1,27 @@
 source 'https://rubygems.org'
 
-
+#Require a specific Ruby version
+ruby '2.1.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use sqlite3 as the database for development and test
+gem 'sqlite3', group: [:development, :test]
+# Use postgres in production
+gem 'pg', group: :production
+# Add 12 factor for Heroku
+gem 'rails_12factor', group: :production
+# Use bootstrap for improving look and feel
+gem 'bootstrap-sass'
+# Use stripe for e-commerce payments
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+# Use figaro for securely managing credentials
+gem 'figaro', '~> 0.7.0'
+# Use letter opener for emails in development
+gem 'letter_opener', group: :development
+# Add activeAdmin to generate an admin interface
+gem 'activeadmin', github: 'gregbell/active_admin'
+# Add devise to support login for activeAdmin
+gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
